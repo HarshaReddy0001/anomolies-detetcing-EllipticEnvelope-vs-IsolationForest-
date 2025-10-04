@@ -1,0 +1,2 @@
+# anomolies-detetcing-EllipticEnvelope-vs-IsolationForest-
+Analyzes temperature time series data for anomalies indicating potential device failure. Uses visualization, feature engineering (time/day categories), and anomaly detection (Elliptic Envelope, Isolation Forest) to spot unusual patterns. Enables proactive maintenance by identifying early warning signs of device malfunction and minimizing downtime.
