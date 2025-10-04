@@ -15,26 +15,32 @@ The approach involves several steps:
 2. **Time Series Visualization:** Plotting the temperature data over time to observe trends and patterns.
 3. **Feature Engineering:** Creating new features to categorize data by time of day (Day/Night) and day of the week (Weekday/Weekend).
 4. **Anomaly Detection:** Applying two different anomaly detection algorithms:
-    - **Elliptic Envelope:** Assuming the normal data follows a Gaussian distribution.
-    - **Isolation Forest:** An ensemble method that isolates anomalies based on random partitioning.
-5. **Visualization and Analysis of Anomalies:** Visualizing the detected anomalies for each category and comparing the results from both algorithms.
+   - **Elliptic Envelope:** Assuming the normal data follows a Gaussian distribution.
+   - **Isolation Forest:** An ensemble method that isolates anomalies based on random partitioning.
+5. **Visualization and Analysis of Anomaly:** Visualizing the detected anomalies for each category and comparing the results from both algorithms.
 6. **Counting Anomalies:** Quantifying the number of anomalies detected in each category.
 
 ## Results
-[Based on the output from your notebook, summarize the key findings here. For example:
-- Describe the overall temperature trends observed in the time series plot.
-- Mention how the categorization by time of day and day of the week helped in analyzing anomalies.
-- Compare the number of anomalies detected by Elliptic Envelope and Isolation Forest for each category.
-- Discuss any interesting insights from the visualizations.]
+Based on the analysis of the temperature time series data:
+
+- The time series plot shows the temperature fluctuations over time.
+- Categorizing the data by "Weekday Day", "Weekday Night", "Weekend Day", and "Weekend Night" allowed for analyzing anomaly detection within these specific periods.
+- The Elliptic Envelope algorithm, assuming a Gaussian distribution, detected the following number of anomalies in each category:
+    - Weekday Night: 132
+    - Weekday Day: 132
+    - Weekend Night: 51
+    - Weekend Day: 51
+- The Isolation Forest algorithm, which is less sensitive to assumptions about data distribution, detected a consistent number of anomalies across all categories (51), which could indicate that it identified anomalies based on a more general pattern across the entire dataset, or that the 5% contamination parameter resulted in a fixed number of anomalies being identified per category due to the way the data was split.
+- The visualizations of anomalies for each category show the distribution of normal and anomalous temperature values.
 
 ## Conclusion
-[Summarize the main conclusions drawn from the analysis. For example:
-- Which algorithm seemed to perform better for this dataset and why?
-- What are the implications of the anomaly detection for predictive maintenance?
-- Suggest potential next steps, such as:
-    - Exploring other anomaly detection algorithms.
-    - Incorporating other relevant features (e.g., humidity, pressure).
-    - Building a predictive model based on the identified anomalies.]
+Comparing the results of the two anomaly detection algorithms:
+
+- Elliptic Envelope identified more anomalies in the "Weekday Day" and "Weekday Night" categories compared to "Weekend Day" and "Weekend Night". This might suggest that temperature fluctuations are more varied during weekdays.
+- Isolation Forest detected a consistent number of anomalies across all categories (51), which could indicate that it identified anomalies based on a more general pattern across the entire dataset, or that the 5% contamination parameter resulted in a fixed number of anomalies being identified per category due to the way the data was split.
+- From the visual inspection of the histograms, both algorithms seem to perform reasonably well in detecting anomalies. However, Isolation Forest might be more robust to the specific distribution of the data within each category.
+- The identified anomalies can serve as potential indicators of device stress or impending failure, which can inform a predictive maintenance strategy.
+- Future steps could involve investigating the nature of the detected anomalies further, exploring other anomaly detection techniques, or incorporating additional sensor data for a more comprehensive analysis.
 
 ## Installation/Usage
 To run this notebook:
